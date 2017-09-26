@@ -180,14 +180,14 @@
 		</div>
 	</header>
 	<br>
-	<div class="table-responsive-vertical shadow-z-1">
-		<table id="table" class="table table-hover table-mc-light-blue">
 <?php
 	include("config.php");
 
 	if(!isset($_GET['projectid'])) {
 ?>
-			<form action="updateproject.php" method="post" id="form">
+	<form action="updateproject.php" method="post" id="form">
+		<div class="table-responsive-vertical shadow-z-1">
+			<table id="table" class="table table-hover table-mc-light-blue">
 				<tbody id="tbody">
 					<tr>
 						<th>Project Name</th>
@@ -202,7 +202,9 @@
 						<td><textarea name="keywords[]"></textarea></td>
 					</tr>
 				</tbody>
-			</form>
+			</table>
+		</div>
+	</form>
 <?php
 	} else {
 		$projectid = $_GET['projectid'];
@@ -210,7 +212,9 @@
 		$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 		$row = pg_fetch_array($result, null, PGSQL_ASSOC)
 ?>
-			<form action="updateproject.php?projectid=<?php echo $projectid ?>" method="post" id="form">
+	<form action="updateproject.php?projectid=<?php echo $projectid ?>" method="post" id="form">
+		<div class="table-responsive-vertical shadow-z-1">
+			<table id="table" class="table table-hover table-mc-light-blue">
 				<tbody id="tbody">
 					<tr>
 						<th>Project Name</th>
@@ -244,7 +248,9 @@
 		}
 ?>
 				</tbody>
-			</form>
+			</table>
+		</div>
+	</form>
 <?php
 	}
 
@@ -252,8 +258,6 @@
 
 	pg_close($dbconn);
 ?>
-		</table>
-	</div>
 	<p><button onclick="addTheme()">Add Theme</button>&nbsp;&nbsp;<button onclick="formSubmit();">Submit</button></p>
 	<footer>&copy;<b>Decision Resources Group</b> - Product Technology Hackathon 2017</footer>
 </body>

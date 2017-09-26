@@ -4,10 +4,6 @@
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		$projectname = $_POST['projectname'];
-		// $test_theme=array("t1","t2","t3");
-		// $themenames=implode(",", $test_theme);
-
-		// $themenames = implode(",", $_POST['themename']);
 		$themenames = $_POST['themename'];
 		$keywordslist = $_POST['keywords'];
 		$user = $_SESSION['login_user'];
