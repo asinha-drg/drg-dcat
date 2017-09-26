@@ -55,6 +55,8 @@ CREATE TABLE file_detail
 		author text
 	);
 
+	create index file_id_idx on file_detail(file_id);
+
 CREATE TABLE mapped_data
 	(
 		data_row_id integer,
